@@ -1,28 +1,34 @@
-//require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-// ✅ Mount router properly
-app.use("/api", userroutes);
-app.use("/api", TokenRoute);
-app.use("/api", GetUrl);
+// ✅ Import routes FIRST
+const userRoutes = require("./routes/userfulldetails");
 
+// ✅ Mount routes
+app.use("/api", userRoutes);
+
+// ✅ Root route (important for Render)
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "API is running successfully 🚀",
+  });
+});
+
+// ✅ Health check
 app.get("/health", (req, res) => {
   res.json({ status: "OK" });
 });
 
-module.exports = app;
-
-const userroutes = require("./routes/userfulldetails");
-const TokenRoute = require("./routes/userfulldetails");
-const GetUrl = require("./routes/userfulldetails");
+// ✅ REQUIRED for Render
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
