@@ -12,19 +12,17 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const userroutes = require("./routes/userfulldetails");
-const TokenRoute = require("./routes/userfulldetails");
-const GetUrl = require("./routes/userfulldetails");
-
 // ✅ Mount router properly
 app.use("/api", userroutes);
 app.use("/api", TokenRoute);
 app.use("/api", GetUrl);
 
-app.get("/test", (req, res) => {
-  res.send("api is running");
+app.get("/health", (req, res) => {
+  res.json({ status: "OK" });
 });
 
-app.listen(PORT, () => {
-  console.log("Port running at", PORT);
-});
+module.exports = app;
+
+const userroutes = require("./routes/userfulldetails");
+const TokenRoute = require("./routes/userfulldetails");
+const GetUrl = require("./routes/userfulldetails");
