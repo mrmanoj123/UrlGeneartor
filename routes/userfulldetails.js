@@ -7,7 +7,7 @@ const { GetToken } = require("../Controllers/agentlog");
 const { geturl } = require("../Controllers/UrlGenerator");
 
 Route.get("/userinfo", getuserdetails);
-Route.get("/url", geturl);
+Route.post("/url", geturl);
 Route.post("/getToken", GetToken);
 
 module.exports = Route;
