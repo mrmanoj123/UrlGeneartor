@@ -17,7 +17,7 @@ exports.geturl = async (req, res) => {
   });
 
   //const link = `https://expample.com/${jwttoken}/${recordid}`;
-  const link = `https://nareshfrontend.onrender.com/upload${jwttoken}`;
+  const link = `https://nareshfrontend.onrender.com/upload/${jwttoken}`;
 
   const details = {
     Agentemail,
