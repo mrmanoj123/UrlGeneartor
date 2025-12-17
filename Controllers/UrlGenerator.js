@@ -16,7 +16,8 @@ exports.geturl = async (req, res) => {
     expiresIn: "2m",
   });
 
-  const link = `https://expample.com/${jwttoken}/${recordid}`;
+  //const link = `https://expample.com/${jwttoken}/${recordid}`;
+  const link = `https://nareshfrontend.onrender.com/upload${jwttoken}`;
 
   const details = {
     Agentemail,
