@@ -13,7 +13,7 @@ exports.geturl = async (req, res) => {
   };
   const client_id = "9e7c8b29-9988-45e2-b631-6def578db4fd";
   const jwttoken = jwt.sign(payload, client_id, {
-    expiresIn: "1h",
+    expiresIn: "2m",
   });
 
   const link = `https://expample.com/${jwttoken}/${recordid}`;
