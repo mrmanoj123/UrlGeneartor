@@ -10,7 +10,7 @@ exports.GetToken = async (details) => {
   const scope = process.env.SCOPE;
   const grant_type = process.env.GRANT_CREDS;
 
-  console.log(client_id, client_secret);
+  //console.log(client_id, client_secret);
 
   if (!client_id || !client_secret || !tenant_id) {
     throw new Error("Missing required environment variables");
